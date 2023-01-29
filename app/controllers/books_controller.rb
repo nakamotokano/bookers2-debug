@@ -4,6 +4,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book_new=Book.new
     @user = @book.user
+    @book_comment  = BookComment.new
   end
 
   def index
@@ -30,7 +31,7 @@ class BooksController < ApplicationController
   unless book_id.user == current_user
     redirect_to books_path
   end
-  
+
     @book = Book.find(params[:id])
   end
 
@@ -39,7 +40,7 @@ class BooksController < ApplicationController
   unless book_id.user == current_user
     redirect_to books_path
   end
-    
+
     @book = Book.find(params[:id])
     if @book.update(book_params)
       redirect_to book_path(@book), notice: "You have updated book successfully."
