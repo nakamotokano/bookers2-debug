@@ -9,7 +9,23 @@
 	  <th>introduction</th>
 	  <th><%= user.introduction %></th>
   </tr>
+   <tr>
+  <th>follows</th>
+  <th>
+    <%= link_to followings_user_path(user) do %>
+    <%= user.followings.count %>
+    <%end%>
+    </th>
+   </tr>
+   <tr>
+  <th>follower</th>
+  <th>
+    <%= link_to "#{user.followers.count}" ,followers_user_path(user) %>
+ </th>
+   </tr>
 </table>
+
+
 <div class='row'>
   <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
     <i class="fas fa-user-cog"></i>
