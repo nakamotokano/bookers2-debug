@@ -1,0 +1,5 @@
+$("#comments_area").html("<%= j(render 'books/comment', book: @book) %>");
+<!--フォームを送信したあとにフォームの値を空にします-->
+$("textarea").val('');
+
+$("#commentsCount").html("<%= j( render 'books/commentcount' ,book: @book) %>");
